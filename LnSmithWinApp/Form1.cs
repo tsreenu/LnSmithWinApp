@@ -296,11 +296,11 @@ namespace LnSmithWinApp
                     PdfPCell cellNweight = new PdfPCell();
                     Paragraph paraNWeight = new Paragraph(item.NetWeight.ToString("########.000"));
                     paraNWeight.Alignment = Element.ALIGN_CENTER;
-                    cellNweight.AddElement(paraCarat);
+                    cellNweight.AddElement(paraNWeight);
                     tableOrnaments.AddCell(cellNweight);
 
                     PdfPCell cellMPrice = new PdfPCell();
-                    Paragraph paraMPrice = new Paragraph(item.NetWeight.ToString("########.00"));
+                    Paragraph paraMPrice = new Paragraph(item.MarketPrice.ToString("########.00"));
                     paraMPrice.Alignment = Element.ALIGN_CENTER;
                     cellMPrice.AddElement(paraMPrice);
                     tableOrnaments.AddCell(cellMPrice);
@@ -363,7 +363,7 @@ namespace LnSmithWinApp
 
                 document.Add(new Paragraph("\n"));
 
-                Paragraph lastPara = new Paragraph("I Solemnly declare that weight, purity of the gold ornaments/precious stones indicated above are correct and Iunder take to indemnify the Bank against any loss it may sustain on account of any inaccuracy in the above appraisal.");
+                Paragraph lastPara = new Paragraph("I Solemnly declare that weight, purity of the gold ornaments/precious stones indicated above are correct and I under take to indemnify the Bank against any loss it may sustain on account of any inaccuracy in the above appraisal.");
                 dearPara.Alignment = Element.ALIGN_LEFT;
                 dearPara.Font.Size = 12;
                 document.Add(lastPara);
@@ -461,7 +461,7 @@ namespace LnSmithWinApp
                         ornament.StoneWeight = Convert.ToDecimal(0);
                     }
                     //ornament.StoneWeight = Convert.ToDecimal(txtStoneWeight.Text != "" ? txtStoneWeight.Text : 0);
-                    ornament.Quality = Convert.ToInt32(txtQuality.Text);
+                    ornament.Quality = Convert.ToDecimal(txtQuality.Text);
                     ornament.NetWeight = Convert.ToDecimal(txtNetWeight.Text);
                     ornament.MarketPrice = Convert.ToDecimal(txtMarketPrice.Text);
 
@@ -483,7 +483,7 @@ namespace LnSmithWinApp
                         ornament.StoneWeight = Convert.ToDecimal(0);
                     }
                     //ornament.StoneWeight = Convert.ToDecimal(txtStoneWeight.Text != "" ? txtStoneWeight.Text : 0);
-                    ornament.Quality = Convert.ToInt32(txtQuality.Text);
+                    ornament.Quality = Convert.ToDecimal(txtQuality.Text);
                     ornament.NetWeight = Convert.ToDecimal(txtNetWeight.Text);
                     ornament.MarketPrice = Convert.ToDecimal(txtMarketPrice.Text);
                     ornaments.Add(ornament);
@@ -515,7 +515,7 @@ namespace LnSmithWinApp
             {
                 var grosswt = Convert.ToDecimal(txtGrossWeight.Text);
                 var stonewt = Convert.ToDecimal(txtStoneWeight.Text != "" ? txtStoneWeight.Text : "0");
-                var qulty = Convert.ToInt32(txtQuality.Text);
+                var qulty = Convert.ToDecimal(txtQuality.Text);
 
                 var weight = (grosswt - stonewt) * (qulty / 100m);
                 var netWeight = weight + ((weight * 8) / 100m);
@@ -581,6 +581,54 @@ namespace LnSmithWinApp
                 MessageBox.Show("Deleted Successfully");
                 ClearOrnamentDetails();
             }
+        }
+
+        private void txtGrossWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // allows 0-9, backspace, and decimal
+            //if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            //{
+            //    e.Handled = true;
+            //    return;
+            //}
+            //// checks to make sure only 1 decimal is allowed
+            //if (e.KeyChar == 46)
+            //{
+            //    if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1)
+            //        e.Handled = true;
+            //}
+        }
+
+        private void txtStoneWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //// allows 0-9, backspace, and decimal
+            //if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            //{
+            //    e.Handled = true;
+            //    return;
+            //}
+            //// checks to make sure only 1 decimal is allowed
+            //if (e.KeyChar == 46)
+            //{
+            //    if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1)
+            //        e.Handled = true;
+            //}
+        }
+
+        private void txtQuality_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //// allows 0-9, backspace, and decimal
+            //if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            //{
+            //    e.Handled = true;
+            //    return;
+            //}
+            //// checks to make sure only 1 decimal is allowed
+            //if (e.KeyChar == 46)
+            //{
+            //    if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1)
+            //        e.Handled = true;
+            //}
         }
     }
 }

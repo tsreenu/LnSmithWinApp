@@ -258,6 +258,7 @@ namespace LnSmithWinApp
             this.txtGrossWeight.Size = new System.Drawing.Size(113, 23);
             this.txtGrossWeight.TabIndex = 23;
             this.txtGrossWeight.TextChanged += new System.EventHandler(this.txtGrossWeight_TextChanged);
+            this.txtGrossWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGrossWeight_KeyPress);
             // 
             // txtStoneWeight
             // 
@@ -266,6 +267,7 @@ namespace LnSmithWinApp
             this.txtStoneWeight.Size = new System.Drawing.Size(113, 23);
             this.txtStoneWeight.TabIndex = 24;
             this.txtStoneWeight.TextChanged += new System.EventHandler(this.txtStoneWeight_TextChanged);
+            this.txtStoneWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStoneWeight_KeyPress);
             // 
             // txtQuality
             // 
@@ -274,6 +276,7 @@ namespace LnSmithWinApp
             this.txtQuality.Size = new System.Drawing.Size(113, 23);
             this.txtQuality.TabIndex = 25;
             this.txtQuality.TextChanged += new System.EventHandler(this.txtQuality_TextChanged);
+            this.txtQuality.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuality_KeyPress);
             // 
             // txtNetWeight
             // 

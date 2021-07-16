@@ -15,7 +15,7 @@ namespace LnSmithWinApp
        
         public decimal GrossWeight { get; set; }
         public decimal StoneWeight { get; set; }
-        public int Quality { get; set; }
+        public decimal Quality { get; set; }
       
         public decimal NetWeight { get; set; }
     
