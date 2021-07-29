@@ -72,17 +72,17 @@ namespace LnSmithWinApp
                 //Bank Manager and Branch
                 Paragraph toPara = new Paragraph("To");
                 toPara.Alignment = Element.ALIGN_LEFT;
-                toPara.Font.Size = 12;
+                toPara.Font.Size = 11;
                 document.Add(toPara);
 
                 Paragraph managerPara = new Paragraph("The Branch Manager");
                 managerPara.Alignment = Element.ALIGN_LEFT;
-                managerPara.Font.Size = 12;
+                managerPara.Font.Size = 11;
                 document.Add(managerPara);
 
                 Paragraph bankPara = new Paragraph("State Bank of India");
                 bankPara.Alignment = Element.ALIGN_LEFT;
-                bankPara.Font.Size = 12;
+                bankPara.Font.Size = 11;
                 document.Add(bankPara);
 
 
@@ -109,15 +109,17 @@ namespace LnSmithWinApp
                 tableAccount.AddCell(cellAcNo);
 
                 document.Add(tableAccount);
-
-                document.Add(new Paragraph("\n"));
+                if (ornaments.Count < 6)
+                {
+                    document.Add(new Paragraph("\n"));
+                }
 
                 Paragraph dearPara = new Paragraph("Dear Sir,");
                 dearPara.Alignment = Element.ALIGN_LEFT;
-                dearPara.Font.Size = 12;
+                dearPara.Font.Size = 11;
                 document.Add(dearPara);
 
-                document.Add(new Paragraph("\n"));
+                //document.Add(new Paragraph("\n"));
 
 
                 Chunk chunk3 = new Chunk("I hereby certify that Sri / Smt ");
@@ -154,7 +156,7 @@ namespace LnSmithWinApp
                 Chunk chunk11 = new Chunk(" in the presence of Sri/ Smt ");
                 document.Add(new Phrase(chunk11));
 
-                Chunk chunk12 = new Chunk("                   ");
+                Chunk chunk12 = new Chunk("                                        ");
                 chunk12.SetUnderline(1, -3);
                 document.Add(new Phrase(chunk12));
 
@@ -182,14 +184,14 @@ namespace LnSmithWinApp
                 tableOrnaments.AddCell(cellSno);
 
                 PdfPCell cellDesc = new PdfPCell();
-                Paragraph descPara1 = new Paragraph("Description of");
-                Paragraph descPara2 = new Paragraph("the article");
+                Paragraph descPara1 = new Paragraph("Description of the article");
+                //Paragraph descPara2 = new Paragraph("the article");
                 descPara1.Alignment = Element.ALIGN_CENTER;
-                descPara2.Alignment = Element.ALIGN_CENTER;
+                //descPara2.Alignment = Element.ALIGN_CENTER;
                 descPara1.Font.SetStyle(1);
-                descPara2.Font.SetStyle(1);
+                //descPara2.Font.SetStyle(1);
                 cellDesc.AddElement(descPara1);
-                cellDesc.AddElement(descPara2);
+                //cellDesc.AddElement(descPara2);
                 tableOrnaments.AddCell(cellDesc);
 
                 PdfPCell cellGrossWeight = new PdfPCell();
@@ -204,8 +206,8 @@ namespace LnSmithWinApp
                 tableOrnaments.AddCell(cellGrossWeight);
 
                 PdfPCell cellApprox = new PdfPCell();
-                Paragraph paraApprox1 = new Paragraph("Approximate weight of the precious stones in ");
-                Paragraph paraApprox2 = new Paragraph("the ornaments (Grams)");
+                Paragraph paraApprox1 = new Paragraph("Approx weight of the precious stones in");
+                Paragraph paraApprox2 = new Paragraph("the ornaments (Gms)");
                 paraApprox1.Alignment = Element.ALIGN_CENTER;
                 paraApprox2.Alignment = Element.ALIGN_CENTER;
                 paraApprox1.Font.SetStyle(1);
@@ -227,7 +229,7 @@ namespace LnSmithWinApp
 
                 PdfPCell cellNet = new PdfPCell();
                 Paragraph paraNet1 = new Paragraph("Net Weight");
-                Paragraph paraNet2 = new Paragraph("(Grams)");
+                Paragraph paraNet2 = new Paragraph("(Gms)");
                 paraNet1.Alignment = Element.ALIGN_CENTER;
                 paraNet2.Alignment = Element.ALIGN_CENTER;
                 paraNet1.Font.SetStyle(1);
@@ -267,7 +269,7 @@ namespace LnSmithWinApp
                     paraSN.Alignment = Element.ALIGN_CENTER;
                     cellSn.AddElement(paraSN);
                     tableOrnaments.AddCell(cellSn);
-                   
+
 
                     PdfPCell cellORN = new PdfPCell();
                     Paragraph paraORN = new Paragraph(item.Ornament + "(" + item.Quantity + ")");
@@ -282,7 +284,7 @@ namespace LnSmithWinApp
                     tableOrnaments.AddCell(cellGWeight);
 
                     PdfPCell cellSWeight = new PdfPCell();
-                    Paragraph paraSWeight = new Paragraph(item.StoneWeight.ToString("########.000"));
+                    Paragraph paraSWeight = new Paragraph(item.StoneWeight.ToString("0.000"));
                     paraSWeight.Alignment = Element.ALIGN_CENTER;
                     cellSWeight.AddElement(paraSWeight);
                     tableOrnaments.AddCell(cellSWeight);
@@ -332,7 +334,7 @@ namespace LnSmithWinApp
                 tableOrnaments.AddCell(cellGW);
 
                 PdfPCell cellSW = new PdfPCell();
-                Paragraph chunkSW = new Paragraph(SW.ToString("########.000"), boldFont);
+                Paragraph chunkSW = new Paragraph(SW.ToString("0.000"), boldFont);
                 chunkSW.Alignment = Element.ALIGN_CENTER;
                 //chunkSW.Font.SetStyle(1);
                 chunkSW.Font.SetStyle(4);
@@ -357,18 +359,21 @@ namespace LnSmithWinApp
                 cellMP.AddElement(chunkMP);
                 tableOrnaments.AddCell(cellMP);
 
-                float[] widths = new float[] { 7, 20, 11, 40, 11, 17, 15 };
+                float[] widths = new float[] { 8, 43, 12, 32, 12, 15, 18 };
                 tableOrnaments.SetWidths(widths);
                 document.Add(tableOrnaments);
 
-                document.Add(new Paragraph("\n"));
+                if (ornaments.Count < 6)
+                {
+                    document.Add(new Paragraph("\n"));
+                }
 
                 Paragraph lastPara = new Paragraph("I Solemnly declare that weight, purity of the gold ornaments/precious stones indicated above are correct and I under take to indemnify the Bank against any loss it may sustain on account of any inaccuracy in the above appraisal.");
                 dearPara.Alignment = Element.ALIGN_LEFT;
-                dearPara.Font.Size = 12;
+                dearPara.Font.Size = 11;
                 document.Add(lastPara);
 
-                document.Add(new Paragraph("\n\n"));
+                document.Add(new Paragraph("\n"));
 
                 PdfPTable tableFooter = new PdfPTable(2);
                 tableFooter.WidthPercentage = 100;
@@ -395,7 +400,7 @@ namespace LnSmithWinApp
 
                 Paragraph signBarrowerPara = new Paragraph("Signature of the Borrower");
                 signBarrowerPara.Alignment = Element.ALIGN_CENTER;
-                signBarrowerPara.Font.Size = 12;
+                signBarrowerPara.Font.Size = 11;
                 document.Add(signBarrowerPara);
 
                 document.Close();
@@ -452,9 +457,17 @@ namespace LnSmithWinApp
                     ornament.Ornament = txtOrnament.Text;
                     ornament.Quantity = Convert.ToInt32(ddQuantity.SelectedItem);
                     ornament.GrossWeight = Convert.ToDecimal(txtGrossWeight.Text);
-                    if(txtStoneWeight.Text != "")
+                    if (txtStoneWeight.Text != "")
                     {
-                        ornament.StoneWeight = Convert.ToDecimal(txtStoneWeight.Text);
+                        decimal stWeight = Convert.ToDecimal(txtStoneWeight.Text);
+                        if (stWeight > 0)
+                        {
+                            ornament.StoneWeight = decimal.Parse(stWeight.ToString());
+                        }
+                        else
+                        {
+                            ornament.StoneWeight = Convert.ToDecimal(txtStoneWeight.Text);
+                        }
                     }
                     else
                     {
@@ -565,7 +578,7 @@ namespace LnSmithWinApp
             if (txtTodayRate.Text == "" || ddBank.SelectedItem == null || txtBranch.Text == "" || txtName.Text == "" || ddRelationType.SelectedItem == null || txtRelationName.Text == "" || txtAddress.Text == "")
             {
                 IsValid = false;
-            }          
+            }
             return IsValid;
         }
 

@@ -29,6 +29,7 @@ namespace LnSmithWinApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblBank = new System.Windows.Forms.Label();
             this.lblBranch = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -172,12 +173,13 @@ namespace LnSmithWinApp
             // 
             // btnGeneratePdf
             // 
+            this.btnGeneratePdf.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnGeneratePdf.Location = new System.Drawing.Point(366, 415);
             this.btnGeneratePdf.Name = "btnGeneratePdf";
             this.btnGeneratePdf.Size = new System.Drawing.Size(109, 23);
             this.btnGeneratePdf.TabIndex = 14;
             this.btnGeneratePdf.Text = "Generate PDF";
-            this.btnGeneratePdf.UseVisualStyleBackColor = true;
+            this.btnGeneratePdf.UseVisualStyleBackColor = false;
             this.btnGeneratePdf.Click += new System.EventHandler(this.btnGeneratePdf_Click);
             // 
             // label1
@@ -203,9 +205,9 @@ namespace LnSmithWinApp
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(489, 144);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 15);
+            this.label3.Size = new System.Drawing.Size(129, 15);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Gross weight in grams";
+            this.label3.Text = "Gross weight in grams*";
             // 
             // label4
             // 
@@ -318,7 +320,7 @@ namespace LnSmithWinApp
             "18",
             "19",
             "20",
-            "24",
+            "21",
             "22",
             "23",
             "24",
@@ -351,12 +353,13 @@ namespace LnSmithWinApp
             // 
             // btnAddNew
             // 
+            this.btnAddNew.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnAddNew.Location = new System.Drawing.Point(670, 382);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(113, 23);
             this.btnAddNew.TabIndex = 31;
             this.btnAddNew.Text = "Add";
-            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.UseVisualStyleBackColor = false;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // gridOrnaments
@@ -371,18 +374,20 @@ namespace LnSmithWinApp
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.button1.Location = new System.Drawing.Point(874, 382);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 33;
             this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(985, 600);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gridOrnaments);
@@ -416,6 +421,7 @@ namespace LnSmithWinApp
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblBranch);
             this.Controls.Add(this.lblBank);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "SBI Estimation";
             ((System.ComponentModel.ISupportInitialize)(this.gridOrnaments)).EndInit();
